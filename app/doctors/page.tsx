@@ -18,6 +18,7 @@ const languageLabels: Record<Language, string> = {
   en: 'English',
   ru: 'Русский',
   lv: 'Latviešu',
+  es: 'Español',
 }
 
 function formatDate(d: string) {
