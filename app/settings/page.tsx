@@ -6,6 +6,7 @@ const languageOptions: { value: Language; label: string; native: string }[] = [
   { value: 'en', label: 'English', native: 'English' },
   { value: 'ru', label: 'Russian', native: 'Русский' },
   { value: 'lv', label: 'Latvian', native: 'Latviešu' },
+  { value: 'es', label: 'Spanish', native: 'Español' },
 ]
 
 export default function SettingsPage() {
@@ -42,7 +43,7 @@ export default function SettingsPage() {
       </div>
 
       {/* Language cards */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {languageOptions.map((opt) => (
           <button
             key={opt.value}

@@ -46,7 +46,7 @@ export default function BotToggle({ patientId, initialValue, onUpdate }: BotTogg
       } ${loading ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}`}
       role="switch"
       aria-checked={active}
-      title={active ? 'Bot active — click to pause' : 'Bot paused — click to activate'}
+      title={active ? 'AI assistant active — click to pause' : 'AI assistant paused — click to activate'}
     >
       <span
         className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white shadow transition-transform ${

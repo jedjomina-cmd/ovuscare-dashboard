@@ -4,10 +4,11 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import { en, type Translations } from '@/locales/en'
 import { ru } from '@/locales/ru'
 import { lv } from '@/locales/lv'
+import { es } from '@/locales/es'
 
-export type Language = 'en' | 'ru' | 'lv'
+export type Language = 'en' | 'ru' | 'lv' | 'es'
 
-const translations: Record<Language, Translations> = { en, ru, lv }
+const translations: Record<Language, Translations> = { en, ru, lv, es }
 
 interface I18nContextType {
   t: Translations
@@ -26,7 +27,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const saved = localStorage.getItem('ovuscare_lang') as Language | null
-    if (saved && ['en', 'ru', 'lv'].includes(saved)) {
+    if (saved && ['en', 'ru', 'lv', 'es'].includes(saved)) {
       setLangState(saved)
     }
   }, [])

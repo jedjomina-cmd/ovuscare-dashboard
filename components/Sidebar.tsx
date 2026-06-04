@@ -27,6 +27,7 @@ const languageLabels: Record<Language, string> = {
   en: 'English',
   ru: 'Русский',
   lv: 'Latviešu',
+  es: 'Español',
 }
 
 export default function Sidebar() {
