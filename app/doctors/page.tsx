@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
-import { supabase } from '@/lib/supabase'
 import { useI18n, type Language } from '@/lib/i18n'
 import { IconPlus, IconX, IconUserCircle } from '@tabler/icons-react'
 import { SkeletonRow } from '@/components/Skeleton'
@@ -54,7 +53,7 @@ export default function DoctorsPage() {
     setLoading(false)
   }
 
-  const handleInvite = async (e: React.FormEvent) => {
+  const handleInvite = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!inviteEmail.trim()) return
     setInviting(true)
@@ -191,6 +190,7 @@ export default function DoctorsPage() {
                   <option value="en">English</option>
                   <option value="ru">Русский</option>
                   <option value="lv">Latviešu</option>
+                  <option value="es">Español</option>
                 </select>
               </div>
 
