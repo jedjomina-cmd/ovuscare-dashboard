@@ -10,17 +10,21 @@ import {
   IconStethoscope,
   IconSettings,
   IconLogout,
+  IconVideo,
+  IconCreditCard,
 } from '@tabler/icons-react'
 import Logo from './Logo'
 import { useI18n, type Language } from '@/lib/i18n'
 import { supabase } from '@/lib/supabase'
 
 const navItems = [
-  { href: '/', icon: IconUsers, key: 'patients' as const },
-  { href: '/analytics', icon: IconChartBar, key: 'analytics' as const },
-  { href: '/dialogues', icon: IconMessages, key: 'dialogues' as const },
-  { href: '/doctors', icon: IconStethoscope, key: 'doctors' as const },
-  { href: '/settings', icon: IconSettings, key: 'settings' as const },
+  { href: '/', icon: IconUsers, label: 'Patients' },
+  { href: '/analytics', icon: IconChartBar, label: 'Analytics' },
+  { href: '/dialogues', icon: IconMessages, label: 'Dialogues' },
+  { href: '/content', icon: IconVideo, label: 'Content' },
+  { href: '/doctors', icon: IconStethoscope, label: 'Doctors' },
+  { href: '/billing', icon: IconCreditCard, label: 'Billing' },
+  { href: '/settings', icon: IconSettings, label: 'Settings' },
 ]
 
 const languageLabels: Record<Language, string> = {
@@ -59,7 +63,7 @@ export default function Sidebar() {
 
       {/* Navigation */}
       <nav className="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto">
-        {navItems.map(({ href, icon: Icon, key }) => {
+        {navItems.map(({ href, icon: Icon, label }) => {
           const isActive =
             href === '/'
               ? pathname === '/'
@@ -75,7 +79,7 @@ export default function Sidebar() {
               }`}
             >
               <Icon size={18} strokeWidth={1.75} />
-              {t.nav[key]}
+              {label}
             </Link>
           )
         })}
