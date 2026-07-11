@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS public.clinics (
 
 -- RLS
 ALTER TABLE public.clinics ENABLE ROW LEVEL SECURITY;
-CREATE POLICY IF NOT EXISTS "clinic_members_read_own"
+DROP POLICY IF EXISTS "clinic_members_read_own" ON public.clinics;
+CREATE POLICY "clinic_members_read_own"
   ON public.clinics FOR SELECT
   USING (
     id IN (
@@ -71,7 +72,8 @@ CREATE INDEX IF NOT EXISTS content_clinic_id_idx ON public.content(clinic_id);
 CREATE INDEX IF NOT EXISTS content_stage_lang_idx ON public.content(stage, language);
 
 ALTER TABLE public.content ENABLE ROW LEVEL SECURITY;
-CREATE POLICY IF NOT EXISTS "clinic_members_content"
+DROP POLICY IF EXISTS "clinic_members_content" ON public.content;
+CREATE POLICY "clinic_members_content"
   ON public.content FOR ALL
   USING (
     clinic_id IN (
@@ -95,7 +97,8 @@ CREATE TABLE IF NOT EXISTS public.documents (
 CREATE INDEX IF NOT EXISTS documents_clinic_id_idx ON public.documents(clinic_id);
 
 ALTER TABLE public.documents ENABLE ROW LEVEL SECURITY;
-CREATE POLICY IF NOT EXISTS "clinic_members_documents"
+DROP POLICY IF EXISTS "clinic_members_documents" ON public.documents;
+CREATE POLICY "clinic_members_documents"
   ON public.documents FOR SELECT
   USING (
     clinic_id IN (
